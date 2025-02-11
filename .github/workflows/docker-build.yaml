@@ -14,17 +14,11 @@ jobs:
             password: ${{ secrets.DOCKERHUB_TOKEN }}
             
         # Execute 'tagize' action
-        - uses: langroodi/tagize@v1
-
-        - name: Get tag
-          id: tag
-          uses: devops-actions/action-get-tag@v1.0.3
+        - name: Bump version and push tag
+          id: tag_version
+          uses: mathieudutour/github-tag-action@v6.2
           with:
-            strip_v: true # Optional: Remove 'v' character from version
-            default: v0.0.0 # Optional: Default version when tag not found
-        
-        - name: Use tag
-          run: echo ${{steps.tag.outputs.tag}}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
           
         - name: Build and Push Docker Image
           run: |
