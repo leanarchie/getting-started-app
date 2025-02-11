@@ -12,6 +12,9 @@ jobs:
           with:
             username: ${{ vars.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
+            
+        # Execute 'tagize' action
+        - uses: langroodi/tagize@v1
 
         - name: Get tag
           id: tag
