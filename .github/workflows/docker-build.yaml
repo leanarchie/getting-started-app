@@ -22,6 +22,6 @@ jobs:
           
         - name: Build and Push Docker Image
           run: |
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tuto-docker:${{steps.tag.outputs.tag}} .
-            docker push ${{ vars.DOCKERHUB_USERNAME }}/tuto-docker:${{steps.tag.outputs.tag}}
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tuto-docker:${{tag_version}} .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tuto-docker:${{tag_version}}
         - run : docker images
