@@ -15,6 +15,6 @@ jobs:
         - name: Build and Push Docker Image
           run: |
             TAG=${{ github.run_number }}
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/app:latest .
-            docker push ${{ vars.DOCKERHUB_USERNAME }}/app:latest
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tuto-docker:$TAG .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tuto-docker:$TAG
         - run : docker images
