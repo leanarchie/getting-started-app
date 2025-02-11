@@ -14,6 +14,7 @@ jobs:
             password: ${{ secrets.DOCKERHUB_TOKEN }}
         - name: Build and Push Docker Image
           run: |
+            TAG=${{ github.run_number }}
             docker build -t ${{ vars.DOCKERHUB_USERNAME }}/app:latest .
             docker push ${{ vars.DOCKERHUB_USERNAME }}/app:latest
         - run : docker images
