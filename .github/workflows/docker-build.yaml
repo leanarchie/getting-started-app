@@ -27,4 +27,3 @@ jobs:
 #  - docker build 
 #  - docker images
 #  - docker push
-#  (pas de credentials en clair)
